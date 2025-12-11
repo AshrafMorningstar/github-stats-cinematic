@@ -7,25 +7,62 @@ import "dotenv/config";
 const token = process.env.GH_TOKEN;
 const username = "AshrafMorningstar";
 
+// --- Gamification Logic ---
+function calculateLevel(contribs: number): number {
+  return Math.floor(Math.sqrt(contribs) * 0.5) || 1;
+}
+
+function calculateRank(stars: number, followers: number): string {
+  const score = stars * 2 + followers;
+  if (score > 2000) return "S+";
+  if (score > 1000) return "S";
+  if (score > 500) return "A";
+  if (score > 200) return "B";
+  return "C";
+}
+
+function getTitle(language: string): string {
+  const titles: Record<string, string> = {
+    TypeScript: "Type Sorcerer",
+    JavaScript: "JS Ninja",
+    Python: "Pyromancer",
+    Rust: "Ferrrous Titan",
+    Go: "Gopher Lord",
+    Java: "Bytecode Baron",
+    "C++": "Memory Master",
+    "C#": "Runtime Ranger",
+  };
+  return titles[language] || "Code Architect";
+}
+
 async function fetchStats() {
+  // Mock data fallback if no token
   if (!token) {
-    console.warn("GH_TOKEN is missing! Using mock data.");
+    console.warn("GH_TOKEN is missing! Using enhanced mock data.");
+    const mockContribs = 2500;
+    const mockStars = 1500;
+    const mockLang = "TypeScript";
+
     const mockStats = {
       username: "AshrafMorningstar",
       name: "Ashraf Morningstar",
-      avatar: "",
+      avatar: "https://github.com/AshrafMorningstar.png",
       totalCommits: 1234,
       totalPRs: 56,
       totalIssues: 22,
-      totalContribs: 2500,
+      totalContribs: mockContribs,
       repos: 42,
-      stars: 150,
+      stars: mockStars,
       followers: 50,
       streak: 15,
-      topLanguage: "TypeScript",
+      topLanguage: mockLang,
+      level: calculateLevel(mockContribs),
+      rank: calculateRank(mockStars, 50),
+      title: getTitle(mockLang),
       _credits:
         "Created by AshrafMorningstar - https://github.com/AshrafMorningstar",
     };
+
     await mkdir(join(process.cwd(), "src/data"), { recursive: true });
     await writeFile(
       join(process.cwd(), "src/data/stats.json"),
@@ -107,7 +144,7 @@ async function fetchStats() {
       totalIssues +
       user.contributionsCollection.restrictedContributionsCount;
 
-    // Calculate streak (basic implementation)
+    // Calculate streak
     let streak = 0;
     let currentStreak = 0;
     const weeks = user.contributionsCollection.contributionCalendar.weeks;
@@ -129,12 +166,17 @@ async function fetchStats() {
       totalCommits,
       totalPRs,
       totalIssues,
-      totalContribs,
+      totalContributions: totalContribs, // Normalized key for CinematicGif
+      totalContribs, // Keep old key for compatibility
       repos: user.repositories.totalCount,
       stars: totalStars,
+      totalStars, // Normalized key
       followers: user.followers.totalCount,
       streak,
       topLanguage,
+      level: calculateLevel(totalContribs),
+      rank: calculateRank(totalStars, user.followers.totalCount),
+      title: getTitle(topLanguage),
       _credits:
         "Created by AshrafMorningstar - https://github.com/AshrafMorningstar",
     };

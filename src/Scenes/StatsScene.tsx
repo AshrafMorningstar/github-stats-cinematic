@@ -8,7 +8,9 @@ import {
   Sequence,
 } from "remotion";
 import React from "react";
-import stats from "../data/stats.json";
+// We import safely; if keys are missing we handle them below
+import statsData from "../data/stats.json";
+
 import {
   GitCommit,
   GitPullRequest,
@@ -19,6 +21,24 @@ import {
   Github,
 } from "lucide-react";
 import { TypeWriter } from "../components/TypeWriter";
+
+// Robust fallbacks
+const stats = {
+  ...statsData,
+  name: statsData.name || "Developer",
+  username: statsData.username || "User",
+  totalContribs:
+    (statsData as any).totalContribs ||
+    (statsData as any).totalContributions ||
+    0,
+  stars: (statsData as any).stars || (statsData as any).totalStars || 0,
+  repos: statsData.repos || 0,
+  totalCommits:
+    (statsData as any).totalCommits || (statsData as any).commits || 0,
+  totalPRs: (statsData as any).totalPRs || (statsData as any).prs || 0,
+  totalIssues: (statsData as any).totalIssues || (statsData as any).issues || 0,
+  avatar: statsData.avatar || "",
+};
 
 const Background = () => {
   const frame = useCurrentFrame();
@@ -189,7 +209,7 @@ export const StatsScene: React.FC = () => {
   });
 
   return (
-    <AbsoluteFill>
+    <AbsoluteFill className="font-sans">
       <Background />
 
       <AbsoluteFill style={{ padding: 60 }}>
@@ -270,6 +290,9 @@ export const StatsScene: React.FC = () => {
                     speed={2}
                     cursor={false}
                   />
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-slate-800 text-xs text-slate-400 font-mono">
+                  v2.0
                 </span>
               </div>
             </div>

@@ -6,8 +6,9 @@
   "homepage": "https://github.com/AshrafMorningstar",
   "scripts": {
     "start": "remotion preview src/index.ts",
-    "render": "remotion render src/index.ts StatsComposition out/stats.mp4",
-    "render:gif": "remotion render src/index.ts StatsComposition out/stats.gif --codec=gif",
+    "render": "remotion render src/index.ts CinematicGif out/stats.mp4",
+    "render:gif": "remotion render src/index.ts CinematicGif out/stats.gif --codec=gif",
+    "render:stats": "remotion render src/index.ts StatsComposition out/stats-simple.mp4",
     "fetch": "tsx src/scripts/fetch-data.ts",
     "test": "eslint src --ext ts,tsx"
   },

@@ -3,7 +3,7 @@ name: Generate Premium Stats
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -34,14 +34,14 @@ jobs:
 
       - name: Install Chrome
         run: npx remotion browser ensure
-        
-      - name: Render GIF
-        run: npm run render:gif
+
+      - name: Render Cinematic GIF
+        run: npx remotion render src/index.ts CinematicGif out/stats.gif --gl=angle
 
       - name: Commit and Push
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add out/stats.gif src/data/stats.json
-          git commit -m "Update stats [skip ci]" || exit 0
+          git commit -m "Update cinematic stats [skip ci]" || exit 0
           git push

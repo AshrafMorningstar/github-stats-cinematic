@@ -5,7 +5,6 @@ import { join } from "path";
 import "dotenv/config";
 
 const token = process.env.GH_TOKEN;
-// Ideally read from args or env, hardcoded for this user
 const username = "AshrafMorningstar";
 
 async function fetchStats() {
@@ -22,6 +21,10 @@ async function fetchStats() {
       repos: 42,
       stars: 150,
       followers: 50,
+      streak: 15,
+      topLanguage: "TypeScript",
+      _credits:
+        "Created by AshrafMorningstar - https://github.com/AshrafMorningstar",
     };
     await mkdir(join(process.cwd(), "src/data"), { recursive: true });
     await writeFile(
@@ -44,12 +47,24 @@ async function fetchStats() {
           totalPullRequestContributions
           totalIssueContributions
           restrictedContributionsCount
+          contributionCalendar {
+            weeks {
+              contributionDays {
+                contributionCount
+                date
+              }
+            }
+          }
         }
         repositories(first: 100, ownerAffiliations: OWNER, orderBy: {field: STARGAZERS, direction: DESC}) {
           totalCount
           nodes {
+            name
             stargazers {
               totalCount
+            }
+            primaryLanguage {
+              name
             }
           }
         }
@@ -65,10 +80,24 @@ async function fetchStats() {
     const result: any = await octokit.graphql(query, { login: username });
     const user = result.user;
 
+    // Calculate stars
     const totalStars = user.repositories.nodes.reduce(
       (acc: number, repo: any) => acc + repo.stargazers.totalCount,
       0
     );
+
+    // Calculate top language
+    const languageCounts: Record<string, number> = {};
+    user.repositories.nodes.forEach((repo: any) => {
+      if (repo.primaryLanguage) {
+        const lang = repo.primaryLanguage.name;
+        languageCounts[lang] = (languageCounts[lang] || 0) + 1;
+      }
+    });
+    const topLanguage =
+      Object.entries(languageCounts).sort((a, b) => b[1] - a[1])[0]?.[0] ||
+      "N/A";
+
     const totalCommits = user.contributionsCollection.totalCommitContributions;
     const totalPRs = user.contributionsCollection.totalPullRequestContributions;
     const totalIssues = user.contributionsCollection.totalIssueContributions;
@@ -77,6 +106,21 @@ async function fetchStats() {
       totalPRs +
       totalIssues +
       user.contributionsCollection.restrictedContributionsCount;
+
+    // Calculate streak (basic implementation)
+    let streak = 0;
+    let currentStreak = 0;
+    const weeks = user.contributionsCollection.contributionCalendar.weeks;
+    weeks.forEach((week: any) => {
+      week.contributionDays.forEach((day: any) => {
+        if (day.contributionCount > 0) {
+          currentStreak++;
+          streak = Math.max(streak, currentStreak);
+        } else {
+          currentStreak = 0;
+        }
+      });
+    });
 
     const stats = {
       username: user.login,
@@ -89,6 +133,8 @@ async function fetchStats() {
       repos: user.repositories.totalCount,
       stars: totalStars,
       followers: user.followers.totalCount,
+      streak,
+      topLanguage,
       _credits:
         "Created by AshrafMorningstar - https://github.com/AshrafMorningstar",
     };

@@ -1,179 +1,83 @@
-/*
- Copyright (c) 2026 Ashraf Morningstar
- These are personal recreations of existing projects, developed by Ashraf Morningstar
- for learning and skill development.
- Original project concepts remain the intellectual property of their respective creators.
- Repository: https://github.com/AshrafMorningstar
-*/
-
-# ⚡ Cinematic GitHub Stats v2.0 (Ultimate Edition)
-
-> **"The Best of Best"** - A highly advanced, cinematic, and data-driven visualization of your GitHub profile.
-
-![Project Banner](https://capsule-render.vercel.app/api?type=waving&color=00f3ff&height=250&section=header&text=Cinematic%20GitHub%20Stats&fontSize=80&animation=fadeIn&fontAlignY=35&desc=Next-Gen%20Profile%20Visualization&descAlignY=60&descAlign=50)
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Remotion](https://img.shields.io/badge/Made%20With-Remotion-00f3ff?style=for-the-badge&logo=remotion&logoColor=black)](https://www.remotion.dev/)
-[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Status](https://img.shields.io/badge/Status-Operational-10b981?style=for-the-badge)](https://github.com/AshrafMorningstar)
+# :star: Github Stats Cinematic :star:
+
+[![GitHub stars](https://img.shields.io/github/stars/AshrafMorningstar/github-stats-cinematic?style=for-the-badge&color=orange)](https://github.com/AshrafMorningstar/github-stats-cinematic/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/AshrafMorningstar/github-stats-cinematic?style=for-the-badge&color=blue)](https://github.com/AshrafMorningstar/github-stats-cinematic/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/AshrafMorningstar/github-stats-cinematic?style=for-the-badge&color=red)](https://github.com/AshrafMorningstar/github-stats-cinematic/issues)
+[![GitHub license](https://img.shields.io/github/license/AshrafMorningstar/github-stats-cinematic?style=for-the-badge&color=green)](./LICENSE)
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg?style=for-the-badge)
+
+**Automated, High-Performance github stats cinematic Project**
+
+[View Demo (If Applicable)](#) • [Report Bug](https://github.com/AshrafMorningstar/github-stats-cinematic/issues) • [Request Feature](https://github.com/AshrafMorningstar/github-stats-cinematic/issues)
 
 </div>
 
-## 🌌 Overview
-
-**Cinematic GitHub Stats** regenerates your boring static stats into a **4K, 60FPS Cinematic Experience**.
-Designed by **AshrafMorningstar**, this project pushes the boundaries of profile visualization using:
-
-- **Holographic/Cyberpunk Aesthetics** 🔮
-- **RPG-Style Gamification** (Level, Class, Rank) 🎮
-- **3D Floating Cards & Particle Systems** 🧊
-- **Data-Driven Dynamic Animations** 📊
-
 ---
 
-## 🚀 Features
+## :rocket: Overview
 
-### 🛡️ **Cyber-Construct Design**
+**github-stats-cinematic** is a state-of-the-art implementation utilizing Node.js, React, TypeScript. Designed for developers looking for robust, scalable solutions in Open Source, Developer Tools, Coding Best Practices, Software Engineering, React.js, Hooks, Components, Virtual DOM, SPA, Frontend Architecture, Open Source, Developer Tools, Coding Best Practices, Software Engineering.
 
-A completely reimagined UI featuring "Glassmorphism 2.0", neon-infused borders, and a reactive 3D grid environment.
+This project is a high-performance, open-source solution designed for developers and enthusiasts. It implements modern best practices and is optimized for efficiency and scalability.
 
-### ⚔️ **RPG Gamification System**
+## :sparkles: Key Features
 
-Automatically calculates your developer power level!
+- :white_check_mark: **High Performance:** Optimized for speed and low latency.
+- :white_check_mark: **Scalable Architecture:** Built to handle growth effortlessly.
+- :white_check_mark: **Modern Tech Stack:** Utilizes latest standards in Node.js, React, TypeScript.
+- :white_check_mark: **Developer Friendly:** Clean code, well-documented, and easy to extend.
 
-- **Level**: Based on your total contribution count (infinite scaling).
-- **Rank**: S+, S, A, B, C based on your Stars & Followers.
-- **Class Title**: Dynamic titles like _Type Sorcerer_, _Pyromancer_, or _Code Architect_ based on your top language.
+## :hammer_and_wrench: Technologies Used
 
-### 🎬 **Cinematic Rendering**
+![](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-Powered by **Remotion**, generating high-quality MP4s and GIFs perfect for your `README.md`.
+## :floppy_disk: Installation & Usage
 
-### 🛡️ **Robust Data Fetching**
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/AshrafMorningstar/github-stats-cinematic.git
+   cd github-stats-cinematic
+   ```
 
-Auto-detects missing tokens and provides "Enhanced Mock Data" so the build **never fails**.
+2. **Install dependencies:**
+    npm install
+
+3. **Run the application:**
+    npm start
+
+## :open_file_folder: Project Structure
+
+```
+github-stats-cinematic/
+├── src/          # Source code
+├── assets/       # Images and static files
+├── README.md     # Project documentation
+└── LICENSE       # License information
+```
+
+## :handshake: Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines.
+
+## :bust_in_silhouette: Author
+
+**Ashraf Morningstar**
+
+- **GitHub:** [@AshrafMorningstar](https://github.com/AshrafMorningstar)
+- **Twitter:** [@AMS_Morningstar](https://twitter.com/@AMS_Morningstar)
+- **Portfolio:** [AshrafMorningstar Projects](https://github.com/AshrafMorningstar?tab=repositories)
+
+## :page_facing_up: License
+
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
-
-## 🛠️ Installation & Setup
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/AshrafMorningstar/github-stats-cinematic.git
-cd github-stats-cinematic
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-### 3. Configure Token (Optional)
-
-Create a `.env` file in the root directory:
-
-```env
-GH_TOKEN=your_github_personal_access_token
-```
-
-> _Note: If no token is provided, the system uses "Enhanced Mock Data" for demonstration._
-
----
-
-## ⚡ Usage
-
-### 🎨 Preview Locally
-
-Launch the Remotion Studio to edit and preview in real-time.
-
-```bash
-npm start
-```
-
-### 🎥 Render The "Best of Best" GIF
-
-Generate the highly optimized, under-5MB GIF for your profile.
-
-```bash
-npm run render:gif
-```
-
-_Output will be saved to `out/stats.gif`_
-
-### 🎬 Render 4K Video
-
-```bash
-npm run render
-```
-
-### 🔄 Fetch Latest Data
-
-```bash
-npm run fetch
-```
-
----
-
-## 🤖 GitHub Actions Automation
-
-This repository comes fully equipped with a workflow to **automatically update your stats** every day.
-
-1. Go to your Repository **Settings** > **Secrets and variables** > **Actions**.
-2. Add a New Repository Secret: `GH_TOKEN`.
-3. The workflow `.github/workflows/render-stats.yml` will run daily at midnight.
-
----
-
-## 🧬 Project Structure
-
-```
-📂 src
-├── 🎬 CinematicGif.tsx       # The "Best of Best" Composition
-├── 📊 Scenes/                # Legacy Scenes
-├── 🧱 components/            # Shared UI Components
-├── 💾 data/                  # Auto-generated JSON stats
-├── 📜 scripts/               # Data fetching & RPG logic
-└── 🎨 style.css              # Global Tailwind Directives
-```
-
----
-
-## 🏆 Credits
-
-**Created & Designed by [AshrafMorningstar](https://github.com/AshrafMorningstar)**.
-_Full Authority Granted. Maximum Quality Achieved._
-
 <div align="center">
-  <br>
-  <img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="50">
+  <p>If you find this project useful, please give it a <b>Star</b> :star:!</p>
+  <sub>Built with ❤️ by Ashraf Morningstar</sub>
 </div>
-
-
----
-
-## 📜 Copyright & License
-
-© 2026 Ashraf Morningstar. All Rights Reserved.
-
-**Educational Disclaimer:** This is a personal recreation of an existing project concept, developed for learning and skill development purposes. The original project concept remains the intellectual property of its respective creator(s).
-
-**License:** MIT License - See [LICENSE](./LICENSE) file for details.
-
-**Developer:** [Ashraf Morningstar](https://github.com/AshrafMorningstar)
-
-**Portfolio:** Explore more projects at [github.com/AshrafMorningstar](https://github.com/AshrafMorningstar)
-
----
-
-### 🤝 Connect & Contribute
-
-Found this helpful? Give it a ⭐️ on GitHub!
-
-- 💼 Company: MORNINGSTARCONSTRUCTION
-- 📍 Location: India
-- 🐦 Twitter: [@AMS_Morningstar](https://twitter.com/AMS_Morningstar)
-- 📧 Email: ashrafmorningstar@gmail.com
